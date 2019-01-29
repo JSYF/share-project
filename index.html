@@ -2,8 +2,49 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>hoo-wap</title>
+    <!-- 兼容安卓自适应问题 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- 禁止数字识别为电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- 安卓设备不自动识别邮件地址 -->
+    <meta name="format-detection" name="email=no" />
+    <!-- 是否启用webApp全屏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 设置状态栏的背景颜色，启用webapp模式时生效 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 添加到主屏幕后，全屏显示。 -->
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <title>小云翰</title>
+
+    <script type="text/javascript">
+
+      // 横屏监听
+      var updateOrientation = function(){
+        if(window.orientation=='-90' || window.orientation=='90'){
+          alert('为了更好的体验，请将手机/平板竖过来！');
+        }
+      };
+      window.onorientationchange = updateOrientation;
+    </script>
+    <script type="application/javascript">
+        function getRequestData() {
+          var url = location.search; //获取url中"?"符后的字串
+          var theRequest = {};
+          if (url.indexOf("?") != -1) {
+              var str = url.substr(1);
+              strs = str.split("&");
+              for (var i = 0; i < strs.length; i++) {
+                  theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+              }
+          }
+          return theRequest;
+      };
+
+
+    </script>
   </head>
   <body>
     <div id="app"></div>
