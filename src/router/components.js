@@ -5,10 +5,12 @@
 
 let components;
 const Index = r => require.ensure([], () => r(require('../pages/index/inedx.vue')), 'group-index');
+const Apply = r => require.ensure([], () => r(require('../pages/index/apply.vue')), 'group-apply');
 
 
 components = {
     Index,
+    Apply,
 };
 
 export default components;

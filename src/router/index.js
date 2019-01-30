@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 let router;
 router = new VueRouter({
   mode: "history",
-  base: "/h5/hoo",
+  //base: "",
   linkActiveClass: "active",
   scrollBehavior(to, from, savedPosition) {
     // return 期望滚动到哪个的位置
@@ -30,7 +30,18 @@ router = new VueRouter({
       meta: {
         title: "小云翰"
       }
-    }
+    },
+    
+    // 申请试用
+    {
+      path: "/apply",
+      name: "apply",
+      component: components.Apply,
+      meta: {
+        title: "申请试用"
+      }
+    },
+
   ]
 });
 
