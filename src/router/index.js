@@ -17,21 +17,14 @@ router = new VueRouter({
     }
   },
   routes: [
-    // 首页
     {
-      path: "",
-      redirect: "/index"
-    },
-    // 首页
-    {
-      path: "/index",
+      path:"/",
       name: "index",
       component: components.Index,
       meta: {
         title: "小云翰"
       }
     },
-    
     // 申请试用
     {
       path: "/apply",
