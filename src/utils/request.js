@@ -2,7 +2,7 @@ import axios from 'axios'
 import qs from "qs";
 import jsSha1 from 'js-sha1'
 import Fingerprint from 'fingerprintjs'
-axios.defaults.baseURL = process.env.baseURL;
+axios.defaults.baseURL = process.env.baseUrl;
 function strSha(arys) {
   let sign = qs.stringify(arys) + '&appkey=hoo.ai.edu'
   arys.signature = jsSha1.hex(sign)
