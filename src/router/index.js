@@ -9,7 +9,7 @@ router = new VueRouter({
   mode: "history",
   routes: [
     {
-      path: "/",
+      path: "",
       name: "index",
       component: components.Index,
       meta:{
