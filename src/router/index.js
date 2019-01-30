@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 let router;
 router = new VueRouter({
+  base: "wap",
   mode: "history",
   routes: [
     {
