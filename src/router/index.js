@@ -6,23 +6,13 @@ Vue.use(VueRouter);
 let router;
 router = new VueRouter({
   mode: "history",
-  //base: "",
-  linkActiveClass: "active",
-  scrollBehavior(to, from, savedPosition) {
-    // return 期望滚动到哪个的位置
-    if (savedPosition) {
-      return savedPosition;
-    } else {
-      return { x: 0, y: 0 };
-    }
-  },
   routes: [
     {
-      path:"/",
+      path: "/",
       name: "index",
       component: components.Index,
-      meta: {
-        title: "小云翰"
+      meta:{
+        title:"小云翰"
       }
     },
     // 申请试用
@@ -33,8 +23,7 @@ router = new VueRouter({
       meta: {
         title: "申请试用"
       }
-    },
-
+    }
   ]
 });
 

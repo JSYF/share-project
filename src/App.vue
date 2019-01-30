@@ -1,22 +1,19 @@
 <template>
   <div id="app">
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
+    <router-view></router-view>
   </div>
 </template>
-
 <script>
 export default {
-  name: 'App'
-}
+  name: "App"
+};
 </script>
 
 <style>
-#app{
+#app {
   height: 100%;
 }
-body{
+body {
   background-color: #ffffff;
 }
 </style>
