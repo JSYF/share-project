@@ -4,6 +4,11 @@ import request from '@/utils/request'
 //   return request('apiUrl', data);
 // }
 // 申请使用
-export function postUse(data) {
+export function postUse(data={}) {
   return request("common/submit/saas-consult", data);
+}
+
+// 分享配置
+export function getWxConfig(data={}) {
+  return request("r=common/group-course/get-student-card-js-sign-package",data);
 }

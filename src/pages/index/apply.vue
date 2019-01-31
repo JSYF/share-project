@@ -59,7 +59,8 @@ export default {
         org_name: org_name,
         fullname: name,
         telephone: phone,
-        content: note,source: "学员卡-H5"
+        content: note,
+        source: "学员卡-H5"
       };
       postUse(obj)
         .then(res => {
@@ -68,7 +69,36 @@ export default {
         .catch(e => {
           this.$toast.fail(e);
         });
+    },
+    sharePage() {
+      wx.ready(() => {
+        console.log("ready");
+        wx.onMenuShareTimeline({
+          title: "学员卡—强化教学效果，让学习更有趣", // 分享标题
+          link: "https://www.yunhan100.com/wap", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl: "https://image.haoxuezhuli.com/wap-index/share.png", // 分享图标
+          success: function() {
+            // 用户点击了分享后执行的回调函数
+          }
+        });
+
+        wx.onMenuShareAppMessage({
+          title: "学员卡—强化教学效果，让学习更有趣", // 分享标题
+          desc:
+            "给学员和家长更温暖、更高品质的教学服务，用数据量化老师的服务质量，提高机构运营管理的效率。", // 分享描述
+          link: "https://www.yunhan100.com/wap", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          imgUrl: "https://image.haoxuezhuli.com/wap-index/share.png", // 分享图标
+          type: "", // 分享类型,music、video或link，不填默认为link
+          dataUrl: "", // 如果type是music或video，则要提供数据链接，默认为空
+          success: function() {
+            // 用户点击了分享后执行的回调函数
+          }
+        });
+      });
     }
+  },
+  mounted() {
+    this.sharePage();
   }
 };
 </script>
