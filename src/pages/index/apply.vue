@@ -107,7 +107,8 @@ export default {
   min-height: 100%;
   background-color: #a75762;
   background-image: url('https://image.haoxuezhuli.com/wap-index/sq.jpg');
-  background-size: cover;
+  background-size: 100% auto;
+  background-position 0 bottom;
   .apply-wrap
     padding: 120px 40px 0;
   .apply-inner
