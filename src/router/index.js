@@ -20,7 +20,7 @@ let router = new VueRouter({
       name: "index",
       component: components.Index,
       meta:{
-        title:"小云翰"
+        title:"学员卡"
       }
     },
     // 申请试用
@@ -29,7 +29,7 @@ let router = new VueRouter({
       name: "apply",
       component: components.Apply,
       meta: {
-        title: "申请试用"
+        title: "学员卡-申请试用"
       }
     }
   ]

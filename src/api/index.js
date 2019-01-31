@@ -10,5 +10,5 @@ export function postUse(data={}) {
 
 // 分享配置
 export function getWxConfig(data={}) {
-  return request("r=common/group-course/get-student-card-js-sign-package",data);
+  return request("common/group-course/get-student-card-js-sign-package",data);
 }
