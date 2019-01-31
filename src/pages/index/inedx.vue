@@ -102,16 +102,16 @@ export default {
       swiperArr1: [
         {
           img: "https://image.haoxuezhuli.com/wap-index/b1-1.png",
-          text: "告别微信群沟通的小心翼翼，给予每位家长专属的家校服务体验；"
+          text: "告别微信群沟通的小心翼翼，给予每位家长专属的家校服务体验"
         },
         {
           img: "https://image.haoxuezhuli.com/wap-index/b1-2.png",
-          text: "为学员每个阶段的成长留下美好的记忆，教学效果直接看得到；"
+          text: "为学员每个阶段的成长留下美好的记忆，教学效果直接看得到"
         },
         {
           img: "https://image.haoxuezhuli.com/wap-index/b1-3.png",
           text:
-            "自动生成学员的学期报告，展示机构的服务价值，拉近家长与机构之间的距离；"
+            "自动生成学员的学期报告，展示机构的服务价值，拉近家长与机构之间的距离"
         }
       ],
 
@@ -120,12 +120,12 @@ export default {
         {
           img: "https://image.haoxuezhuli.com/wap-index/b2-1.png",
           text:
-            "老师为孩子留下的记录都有可能被家长转发分享，老生推荐新生直接为机构招生或品牌宣传赋能；"
+            "老师为孩子留下的记录都有可能被家长转发分享，老生推荐新生直接为机构招生或品牌宣传赋能"
         },
         {
           img: "https://image.haoxuezhuli.com/wap-index/b2-2.png",
           text:
-            "手机即可直接付费，配合抢红包/多科立减营销策略，家长更快作出续费决策；"
+            "手机即可直接付费，配合抢红包/多科立减营销策略，家长更快作出续费决策"
         }
       ],
 
@@ -133,11 +133,11 @@ export default {
       swiperArr3: [
         {
           img: "https://image.haoxuezhuli.com/wap-index/b3-1.png",
-          text: "告别纸质表格打勾勾，手机一键考勤更快捷，出勤课消自动统计；"
+          text: "告别纸质表格打勾勾，手机一键考勤更快捷，出勤课消自动统计"
         },
         {
           img: "https://image.haoxuezhuli.com/wap-index/b3-2.png",
-          text: "老师服务过程数据化（一目了然），数据考核更合理、更科学；"
+          text: "老师服务过程数据化（一目了然），数据考核更合理、更科学"
         }
       ]
     };
