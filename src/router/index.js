@@ -31,6 +31,14 @@ let router = new VueRouter({
       meta: {
         title: "申请试用"
       }
+    },
+    {
+      path:"/yunhan_apply",
+      name:"yunhanApply",
+      component:components.yunhanApply,
+      meta:{
+        title:"申请试用"
+      }
     }
   ]
 });
