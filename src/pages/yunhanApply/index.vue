@@ -108,7 +108,6 @@ img
   align-items: center;
   border-bottom: 1px solid #f6f6f6;
   height: 100px;
-
   font-family: SourceHanSansCN-Regular;
   font-size: 28px;
   color: #212121;
