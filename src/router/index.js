@@ -39,6 +39,22 @@ let router = new VueRouter({
       meta:{
         title:"申请试用"
       }
+    },
+    {
+      path:"/publicity",
+      name:"publicity",
+      component:components.publicity,
+      meta:{
+        title:"小云翰"
+      }
+    },
+    {
+      path:"/publicity/like",
+      name:"publicityLike",
+      component:components.publicityShare,
+      meta:{
+        title:"小云翰"
+      }
     }
   ]
 });
