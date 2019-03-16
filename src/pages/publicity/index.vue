@@ -1,6 +1,6 @@
 <template>
   <div class="publicity-page">
-    <div class="like-box">
+    <div class="like-box" v-if="name">
       <h4 class="title">小云翰：我们获奖了——微信支付行业创新大赛奖>></h4>
       <div class="scroll-wrap">
         <p :class="['like-show',action?'action':'']">
@@ -94,8 +94,8 @@ export default {
       telephone: "",
       api_flag: false,
       name: "",
-      action:false,
-      timer:[]
+      action: false,
+      timer: []
     };
   },
   methods: {
@@ -153,7 +153,7 @@ export default {
         query: { source_id: this.$route.query.source_id || "0" }
       });
     },
-    scroll(){
+    scroll() {
       this.timer[0] = setTimeout(() => {
         this.action = true;
         clearTimeout(this.timer[2]);
@@ -177,9 +177,9 @@ export default {
     };
     this.$sharePage(obj);
     this.addCount();
-    this.scroll()
+    this.scroll();
   },
-  destroyed(){
+  destroyed() {
     clearTimeout(this.timer[0]);
     clearTimeout(this.timer[1]);
     clearTimeout(this.timer[2]);
@@ -188,6 +188,11 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus" rel="stylesheet/stylus">
+@keyframes toBig
+  form
+    font-size: 48px;
+  to
+    font-size: 60px;
 .bg-wrap
   width: 100%;
   height: auto;
@@ -249,6 +254,7 @@ export default {
     transform: translateX(-50%) translateY(-50%);
     font-size: 48px;
     color: #fff;
+    animation: toBig 1s linear infinite;
   &:hover
     opacity: 0.8;
 .like-box
@@ -269,16 +275,16 @@ export default {
   .scroll-wrap
     position: relative;
     margin-top: 12px;
-    overflow hidden;
-    height 32px;
+    overflow: hidden;
+    height: 32px;
   .like-show
     display: flex;
     justify-content: center;
     font-size: 24px;
-    padding-bottom:12px;
+    padding-bottom: 12px;
     &.action
-      transform translateY(-100%);
-      transition 1s all;
+      transform: translateY(-100%);
+      transition: 1s all;
     .iconfont
       align-self: center;
       flex: 0 0 auto;
