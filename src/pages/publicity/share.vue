@@ -86,6 +86,15 @@ export default {
     showText() {
       return this.form.real_name ? this.form.real_name : "XXX";
     }
+  },
+  mounted(){
+    let obj = {
+      title: "小云翰：教育培训机构专用的盈利增长管理系统",
+      link: window.location.origin + "/wap/publicity?source_id="+this.$route.query.source_id,
+      imgUrl: "https://image.haoxuezhuli.com/saas-dir/yunhan-logo.png",
+      desc: "解决3大难题：招生、续费、转介绍"
+    };
+    this.$sharePage(obj);
   }
 };
 </script>

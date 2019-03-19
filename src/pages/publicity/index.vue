@@ -1,8 +1,8 @@
 <template>
   <div class="publicity-page">
     <div class="like-box">
-      <h4 class="title">小云翰：我们获奖了——微信支付行业创新大赛奖>></h4>
-      <div class="scroll-wrap">
+      <h4 class="title" @click="toNav">小云翰：我们获奖了——微信支付行业创新大赛奖>></h4>
+      <div class="scroll-wrap" v-if="name">
         <p :class="['like-show',action?'action':'']">
           <i class="iconfont icon-praise_fill"></i>
           我是{{name}},我为小云翰点赞
@@ -94,11 +94,14 @@ export default {
       telephone: "",
       api_flag: false,
       name: "",
-      action:false,
-      timer:[]
+      action: false,
+      timer: []
     };
   },
   methods: {
+    toNav(){
+      window.location.href="https://mp.weixin.qq.com/s?__biz=Mzg4MzAwNjU0OA==&mid=2247484230&idx=1&sn=d869e60a5934a8e809fc7a5b08959453&chksm=cf4f4e7df838c76b56933747d7fa269bc3906274efcddbf278d815abafd7f1558911f99b6a45&token=782520363&lang=zh_CN#rd"
+    },
     submitInfo() {
       if (this.org_name == "") {
         this.$toast.fail("请填写机构名称");
@@ -153,7 +156,7 @@ export default {
         query: { source_id: this.$route.query.source_id || "0" }
       });
     },
-    scroll(){
+    scroll() {
       this.timer[0] = setTimeout(() => {
         this.action = true;
         clearTimeout(this.timer[2]);
@@ -172,14 +175,14 @@ export default {
     let obj = {
       title: "小云翰：教育培训机构专用的盈利增长管理系统",
       link: window.location.href,
-      imgUrl: require("../../assets/img/yunhan/yunhan-logo.png"),
+      imgUrl: "https://image.haoxuezhuli.com/saas-dir/yunhan-logo.png",
       desc: "解决3大难题：招生、续费、转介绍"
     };
     this.$sharePage(obj);
     this.addCount();
-    this.scroll()
+    this.scroll();
   },
-  destroyed(){
+  destroyed() {
     clearTimeout(this.timer[0]);
     clearTimeout(this.timer[1]);
     clearTimeout(this.timer[2]);
@@ -188,6 +191,11 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus" rel="stylesheet/stylus">
+@keyframes toBig
+  form
+    font-size: 48px;
+  to
+    font-size: 60px;
 .bg-wrap
   width: 100%;
   height: auto;
@@ -249,6 +257,7 @@ export default {
     transform: translateX(-50%) translateY(-50%);
     font-size: 48px;
     color: #fff;
+    animation: toBig 1s linear infinite;
   &:hover
     opacity: 0.8;
 .like-box
@@ -269,16 +278,16 @@ export default {
   .scroll-wrap
     position: relative;
     margin-top: 12px;
-    overflow hidden;
-    height 32px;
+    overflow: hidden;
+    height: 32px;
   .like-show
     display: flex;
     justify-content: center;
     font-size: 24px;
-    padding-bottom:12px;
+    padding-bottom: 12px;
     &.action
-      transform translateY(-100%);
-      transition 1s all;
+      transform: translateY(-100%);
+      transition: 1s all;
     .iconfont
       align-self: center;
       flex: 0 0 auto;
