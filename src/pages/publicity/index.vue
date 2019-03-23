@@ -102,7 +102,7 @@ export default {
     toNav(){
       window.location.href="https://mp.weixin.qq.com/s?__biz=Mzg4MzAwNjU0OA==&mid=2247484230&idx=1&sn=d869e60a5934a8e809fc7a5b08959453&chksm=cf4f4e7df838c76b56933747d7fa269bc3906274efcddbf278d815abafd7f1558911f99b6a45&token=782520363&lang=zh_CN#rd"
     },
-    submitInfo() {
+    submitForm() {
       if (this.org_name == "") {
         this.$toast.fail("请填写机构名称");
         return false;
