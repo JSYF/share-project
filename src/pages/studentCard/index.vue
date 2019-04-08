@@ -35,7 +35,7 @@
       <img class="bg-4" src="https://image.haoxuezhuli.com/wap-index/bg-stu-3.png">
     </div>
     <div class="bg-wrap">
-      <img class="bg-5" src=".https://image.haoxuezhuli.com/wap-index/bg-stu-4.png">
+      <img class="bg-5" src="https://image.haoxuezhuli.com/wap-index/bg-stu-4.png">
     </div>
 
     <div class="input-wrap">
