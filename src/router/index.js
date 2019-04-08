@@ -55,6 +55,14 @@ let router = new VueRouter({
       meta:{
         title:"小云翰"
       }
+    },
+    {
+      path:"/student",
+      name:"student",
+      component:components.studentCardShare,
+      meta:{
+        title:"小云翰"
+      }
     }
   ]
 });
