@@ -1,7 +1,7 @@
 <template>
   <div class="publicity-page">
     <div class="bg-wrap">
-      <img class="bg-1" src="../../assets/img/student/head.png">
+      <img class="bg-1" src="https://image.haoxuezhuli.com/wap-index/bg-stu-1.png">
     </div>
     <div class="input-wrap">
       <p class="input-tips">——提交信息，免费试用——</p>
@@ -29,13 +29,13 @@
       <button class="btn" @click.stop.prevent="submitForm">立即提交</button>
     </div>
     <div class="bg-wrap">
-      <img class="bg-3" src="../../assets/img/student/bg01.png">
+      <img class="bg-3" src="https://image.haoxuezhuli.com/wap-index/bg-stu-2.png">
     </div>
     <div class="bg-wrap">
-      <img class="bg-4" src="../../assets/img/student/bg02.png">
+      <img class="bg-4" src="https://image.haoxuezhuli.com/wap-index/bg-stu-3.png">
     </div>
     <div class="bg-wrap">
-      <img class="bg-5" src="../../assets/img/student/foot.png">
+      <img class="bg-5" src=".https://image.haoxuezhuli.com/wap-index/bg-stu-4.png">
     </div>
 
     <div class="input-wrap">
@@ -108,7 +108,7 @@
           org_name: this.org_name, //机构名称
           fullname: this.fullname, //联系人
           telephone: this.telephone, //  联系电话
-          source: "H5宣传页", //来源
+          source: "H5学员卡", //来源
           source_id: this.$route.query.source_id || "0"
         };
         postUse(obj)
@@ -157,9 +157,9 @@
     },
     mounted() {
       let obj = {
-        title: "能招生的家校小程序，增长教学口碑",
+        title: "学员卡：能招生的家校小程序，增长教学口碑",
         link: window.location.href,
-        imgUrl: "https://image.haoxuezhuli.com/saas-dir/yunhan-logo.png",
+        imgUrl: "https://image.haoxuezhuli.com/wap-index/student-card-logo.png",
         desc: "外化教学成果，让家长乐于分享"
       };
       this.$sharePage(obj);
@@ -187,13 +187,13 @@
     img
       width 100%;
     .bg-1
-      height: 574px;
+      height: 660px;
     .bg-3
-      height: 1204px;
+      height: 1328px;
     .bg-4
-      height: 1028px;
+      height: 1371px;
     .bg-5
-      height: 1072px;
+      height: 1058px;
   .input-wrap
     background-color: #fff;
     padding: 50px 35px 70px;
