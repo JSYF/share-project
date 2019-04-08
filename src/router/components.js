@@ -8,10 +8,13 @@ const publicity = ()=>
   import(/* webpackChunkName: "group-publicity" */ "@/pages/publicity/index.vue");
 const publicityShare = ()=>
   import(/* webpackChunkName: "group-publicity" */ "@/pages/publicity/share.vue");
+const studentCardShare = () =>
+  import(/* webpackChunkName: "group-student" */ "@/pages/studentCard/index.vue");
 export default {
   Index,
   Apply,
   yunhanApply,
   publicity,
-  publicityShare
+  publicityShare,
+  studentCardShare
 };
