@@ -79,8 +79,18 @@
         api_flag: false,
         name: "",
         action: false,
-        timer: []
+        timer: [],
+        source_id: ""
       };
+    },
+    created () {
+      let searchParams = window.location.search.slice(1).split('&');
+      for (let i = 0; i < searchParams.length; i++) {
+        if (searchParams[i].includes('source_id')) {
+          this.source_id = searchParams[i].split('=')[1];
+          break;
+        }
+      }
     },
     methods: {
       toNav(){
@@ -109,7 +119,7 @@
           fullname: this.fullname, //联系人
           telephone: this.telephone, //  联系电话
           source: "H5学员卡", //来源
-          source_id: this.$route.query.source_id || "0"
+          source_id: this.source_id || "0"
         };
         postUse(obj)
           .then(res => {
