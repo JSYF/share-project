@@ -135,8 +135,7 @@ export default {
 				}
 				for (let key in this.showOptions) {
 					this.showOptions[key] = res.data[key]
-				}
-        console.log(this.formOptions);
+        }
       });
     },
     submit() {

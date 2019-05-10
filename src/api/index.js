@@ -23,9 +23,9 @@ export function toLike(data={}) {
   return request("common/submit/create-extend-record",data);
 }
 
-// 分享表单选项
+// 海报表单数据
 export function getPosterForm(data={}) {
-  return request("poster/form/get-form-info", data)
+  return request("poster/form/show-form", data)
 }
 
 // 上传表单
