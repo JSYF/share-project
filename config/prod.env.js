@@ -6,7 +6,7 @@ if (target.indexOf("build") != -1) {
   baseUrl = '"https://api.yunhan100.com/api/index.php?r="';
   hasStatistics = true;
 } else {
-  baseUrl = '"http://test.xiaomingkeji.com/api/index.php?r="';
+  baseUrl = '"https://test.xiaomingkeji.com/api/index.php?r="';
 }
 
 module.exports = {
