@@ -1,0 +1,241 @@
+<template>
+  <div class="parent_form">
+		<div class="page_title">{{title}}</div>
+		<div class="form">
+			<div class="form_item">
+				<span class="title">姓名</span>
+				<div class="form_component">
+					<input type="text" v-model.lazy="formData.student_name" placeholder="输入姓名" maxlength="8" />
+				</div>
+			</div>
+			<div class="form_item">
+				<span class="title">手机号</span>
+				<div class="form_component">
+					<input type="number" v-model.lazy="formData.phone" placeholder="输入手机号" maxlength="11" max="11" />
+				</div>
+			</div>
+			<div class="form_item">
+				<span class="title">年级</span>
+				<div class="form_component">
+					<button @click="showAction('grade')">{{formData.grade[0] ? formData.grade[0].name : '选择年级'}} <img class="icon" src="../../../static/images/unfold.png" /></button>
+				</div>
+			</div>
+			<div class="subject_group">
+				<p class="title">选择科目</p>
+				<div class="check_group">
+					<div class="checkbox_item" @click="checkboxClick(item)" v-for="item in formOptions.subject" :key="item.id">
+						<div class="checkbox" :class="formData.subject.indexOf(item.id) !== -1 ? 'checkbox_active': ''">
+							<van-icon name="success"></van-icon>
+						</div>
+						<span>{{item.name}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="form_item">
+				<span class="title">校区</span>
+				<div class="form_component">
+					<button @click="showAction('campus')">{{formData.campus[0] ? formData.campus[0].name : '选择校区'}} <img class="icon" src="../../../static/images/unfold.png" /></button>
+				</div>
+			</div>
+			<div class="form_item">
+				<span class="title">备注</span>
+				<div class="form_component">
+					<input type="text" v-model.lazy="formData.remark" placeholder="输入备注" maxlength="20" />
+				</div>
+			</div>
+		</div>
+		<van-actionsheet
+			v-model="show"
+			:actions="actions"
+			@select="onSelect"
+		/>
+		
+		<div class="bottom" @click="submit">提交</div>
+  </div>
+</template>
+
+<script>
+	import { getPosterForm, submitPosterForm } from "@/api/index.js"
+	import Actionsheet from 'vant/lib/actionsheet';
+	import Field from 'vant/lib/field'
+	import Icon from 'vant/lib/icon'
+	import 'vant/lib/actionsheet/style';
+	import 'vant/lib/icon/style';
+  export default {
+    data () {
+			return {
+				show: false,
+				formData: {
+					student_name: "",
+					phone: "",
+					remark: "",
+					grade: [],
+					subject: [],
+					campus:[]
+				},
+				formOptions: {
+					grade: [],
+					subject: [],
+					campus: []
+				},
+				title: "",
+				type: "",
+				actions: [],
+				gradeList: [
+					{ id: 1, name: "一年级" },
+					{ id: 2, name: "单词课" },
+					{ id: 3, name: "单词课" },
+					{ id: 4, name: "单词课" },
+					{ id: 5, name: "单词课" }
+				]
+			}
+		},
+		components: {
+			"van-actionsheet": Actionsheet,
+			"van-icon": Icon,
+			"van-field": Field
+		},
+		created () {
+			console.log(this.$route)
+			this.form_id = this.$route.query.form_id
+			this.getPageData()
+		},
+		methods: {
+			getPageData () {
+				let id = this.form_id
+				getPosterForm({ id }).then(res => {
+					console.log(res)
+					this.title = res.data.title
+					for (let key in this.formOptions) {
+						this.formOptions[key] = res.data[key]
+					}
+					console.log(this.formOptions)
+				})
+			},
+			submit () {
+				let formData = this.formData
+				let params = {
+					form_id: this.form_id,
+					student_name: formData.student_name,
+					phone: formData.phone,
+					remark: formData.remark,
+					grade: JSON.stringify([formData.grade[0].id]),
+					campus: JSON.stringify([formData.campus[0].id]),
+					subject: JSON.stringify(formData.subject)
+				}
+				submitPosterForm(params).then(res => {
+					this.$toast.success('提交成功');
+				}).catch(err => {
+					this.$toast.fail('提交失败,' + err.msgs);
+				})
+			},
+			showAction (type) {
+				this.type = type
+				this.actions = this.formOptions[type]
+				this.show = true
+			},
+			onSelect (data) {
+				console.log(data)
+				this.formData[this.type][0] = data
+				this.show = false
+			},
+			checkboxClick (currentData) {
+				console.log(currentData)
+				let subjects = [...this.formData.subject]
+				let index = subjects.indexOf(currentData.id)
+				if (index !== -1) {
+					subjects.splice(index, 1)
+				} else {
+					subjects.push(currentData.id)
+				}
+				this.formData.subject = subjects
+			}
+		}
+  }
+</script>
+
+<style lang="stylus" scoped>
+.parent_form
+	height 100vh
+	border 1px solid transparent;
+	color: #333333;
+	box-sizing border-box
+	overflow hidden
+	.page_title
+		font-size: 44px;
+		font-weight: bold;
+		color: #333333;
+		padding 20px 0 28px 40px;
+		border-bottom 2px solid #f6f6f6
+	.bottom
+		position fixed
+		bottom 0
+		left 0
+		width 100%
+		height: 100px;
+		line-height 100px;
+		color #fff
+		text-align center
+		font-size 32px
+		background-color: #333333;
+	.form
+		.subject_group
+			border-bottom  2px solid #f6f6f6;
+			padding 30px 100px 28px 30px;
+			.title
+				font-size: 28px;
+				margin-bottom 36px;
+			.check_group
+				display flex;
+				flex-wrap wrap;
+				.checkbox_item
+					display flex
+					align-items center;
+					margin-right 47px;
+					margin-bottom 30px;
+					.checkbox
+						width 40px;
+						height 40px;
+						display flex
+						align-items center
+						justify-content center
+						background-color #f6f6f6;
+						margin-right 21px;
+						border-radius 4px
+						font-size 30px
+						color #999
+					.checkbox_active
+						color #fff
+						background-color #333;
+					span
+						font-size 28px;
+		.checkbox_group
+			border-bottom 2px solid #f6f6f6
+			font-family: PingFang-SC-Medium;
+			font-size: 28px;
+			color: #333333
+			padding 30px 40px
+		.form_item
+			padding 0 40px
+			box-sizing border-box
+			height 100px
+			border-bottom 2px solid #f6f6f6
+			display flex
+			align-items center
+			font-family: PingFang-SC-Medium;
+			font-size: 28px;
+			color: #333333
+			.title
+				flex 1
+				text-align left
+			.form_component
+				flex 1
+				text-align right 
+				input
+					text-align right
+				button 
+					color #999
+					.icon
+						width 32px
+						height 32px
+</style>

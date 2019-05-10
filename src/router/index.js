@@ -63,6 +63,14 @@ let router = new VueRouter({
       meta:{
         title:"小云翰"
       }
+    },
+    {
+      path: "/poster_form",
+      name: "posterForm",
+      component: components.posterForm,
+      meta: {
+        title: "海报星球"
+      }
     }
   ]
 });

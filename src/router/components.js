@@ -10,11 +10,14 @@ const publicityShare = ()=>
   import(/* webpackChunkName: "group-publicity" */ "@/pages/publicity/share.vue");
 const studentCardShare = () =>
   import(/* webpackChunkName: "group-student" */ "@/pages/studentCard/index.vue");
+const posterForm = () =>
+  import(/* webpackChunkName: "poster-form" */ "@/pages/poster_form/index.vue");
 export default {
   Index,
   Apply,
   yunhanApply,
   publicity,
   publicityShare,
-  studentCardShare
+  studentCardShare,
+  posterForm
 };

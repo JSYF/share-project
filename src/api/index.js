@@ -22,3 +22,13 @@ export function getWxConfig(data={}) {
 export function toLike(data={}) {
   return request("common/submit/create-extend-record",data);
 }
+
+// 分享表单选项
+export function getPosterForm(data={}) {
+  return request("poster/form/get-form-info", data)
+}
+
+// 上传表单
+export function submitPosterForm(data={}) {
+  return request("poster/form-submit/submit", data)
+}

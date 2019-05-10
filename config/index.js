@@ -10,14 +10,22 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/api': {
+        target: 'http://test1.xiaomingkeji.com/api/index.php?r=',
+        changeOrigin: true,
+        pathRewrite: {
+        '^/api': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
-    host: 'mp.xiaomingkeji.com', // can be overwritten by process.env.HOST
-    // host: '127.0.0.1',
+    // host: 'mp.xiaomingkeji.com', // can be overwritten by process.env.HOST
+    host: '127.0.0.1',
     // hosr:"localhost",
     port: 80, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
