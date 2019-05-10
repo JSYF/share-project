@@ -140,14 +140,17 @@ export default {
       });
     },
     submit() {
-      let formData = this.formData;
+			let formData = this.formData;
+			let grade = formData.grade[0] ? [formData.grade[0].id] : []
+			let campus = formData.campus[0] ? [formData.campus[0].id] : []
+			let subject = formData.subject.length ? formData.subject : []
       let params = {
         form_id: this.form_id,
         student_name: formData.student_name,
         phone: formData.phone,
         remark: formData.remark,
-        grade: JSON.stringify([formData.grade[0].id]),
-        campus: JSON.stringify([formData.campus[0].id]),
+        grade: JSON.stringify(grade),
+        campus: JSON.stringify(campus),
         subject: JSON.stringify(formData.subject)
       };
       submitPosterForm(params)
