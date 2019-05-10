@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <div class="form_item" v-if="showOptions.campus == 1">
+      <div class="form_item" v-if="showOptions.has_campus == 1">
         <span class="title">校区</span>
         <div class="form_component">
           <button @click="showAction('campus')">
@@ -293,7 +293,7 @@ export default {
 
         button {
           color: #999;
-
+          padding 0
           .icon {
             width: 32px;
             height: 32px;
