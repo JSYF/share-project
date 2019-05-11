@@ -144,6 +144,7 @@ export default {
       let id = this.form_id;
       getPosterForm({ id }).then(res => {
         console.log(res);
+        this.user_id = res.data.user_id
         this.title = res.data.title;
         for (let key in this.formOptions) {
           this.formOptions[key] = res.data[key];
@@ -160,6 +161,7 @@ export default {
 			let campus = formData.campus[0] ? [formData.campus[0].id] : []
 			let subject = formData.subject.length ? formData.subject : []
       let params = {
+        user_id: this.user_id,
         form_id: this.form_id,
         student_name: formData.student_name,
         phone: formData.phone,
