@@ -96,7 +96,7 @@ export default {
 				has_mobile: "0", // 电话
 				has_name: "0", // 姓名
 				has_subject: "0" // 学科
-			},
+      },
       formOptions: {
         grade: [],
         subject: [],
@@ -104,14 +104,7 @@ export default {
       },
       title: "",
       type: "",
-      actions: [],
-      gradeList: [
-        { id: 1, name: "一年级" },
-        { id: 2, name: "单词课" },
-        { id: 3, name: "单词课" },
-        { id: 4, name: "单词课" },
-        { id: 5, name: "单词课" }
-      ]
+      actions: []
     };
   },
   components: {
@@ -125,6 +118,28 @@ export default {
     this.getPageData();
   },
   methods: {
+    formValidate () {
+      let err = ""
+      let formData = Object.assign({}, this.formData)
+      let formOptions = Object.assign({}, this.showOptions)
+      if (!formData.student_name) {
+        err = "请填写学生姓名"
+      } else if (formData.phone.length !== 11) {
+        err  = "请填写11位电话号码"
+      } else if (formOptions.has_subject == 1 && !formData.subject.length) {
+        err = "请选择科目"
+      } else if (formOptions.has_campus == 1 && !formData.campus.length) {
+        err = "请选择校区"
+      } else if (formOptions.has_grade == 1 && !formData.grade.length) {
+        err = "请选择年级"
+      }
+      if (err.length) {
+        this.$toast.fail(err)
+        return false
+      } else {
+        return true
+      }
+    },
     getPageData() {
       let id = this.form_id;
       getPosterForm({ id }).then(res => {
@@ -139,6 +154,7 @@ export default {
       });
     },
     submit() {
+      if (!this.formValidate()) return
 			let formData = this.formData;
 			let grade = formData.grade[0] ? [formData.grade[0].id] : []
 			let campus = formData.campus[0] ? [formData.campus[0].id] : []
@@ -157,7 +173,8 @@ export default {
           this.$toast.success("提交成功");
         })
         .catch(err => {
-          this.$toast.fail("提交失败," + err.msgs);
+          console.log(err)
+          this.$toast.fail("提交失败," + err);
         });
     },
     showAction(type) {
