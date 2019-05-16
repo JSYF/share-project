@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import { getPosterForm, submitPosterForm } from "@/api/index.js";
+import { getPosterForm, submitPosterForm } from "@/api/poster_form.js";
 import Actionsheet from "vant/lib/actionsheet";
 import Field from "vant/lib/field";
 import Icon from "vant/lib/icon";

@@ -12,6 +12,9 @@ const studentCardShare = () =>
   import(/* webpackChunkName: "group-student" */ "@/pages/studentCard/index.vue");
 const posterForm = () =>
   import(/* webpackChunkName: "poster-form" */ "@/pages/poster_form/index.vue");
+// 数据看板
+const dataShow = () =>
+  import(/* webpackChunkName: "group-data-show" */ "@/pages/data_show/index.vue");
 export default {
   Index,
   Apply,
@@ -19,5 +22,6 @@ export default {
   publicity,
   publicityShare,
   studentCardShare,
-  posterForm
+  posterForm,
+  dataShow
 };

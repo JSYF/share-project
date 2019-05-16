@@ -71,6 +71,14 @@ let router = new VueRouter({
       meta: {
         title: "海报星球"
       }
+    },
+    {
+      path:"/data_show",
+      name:"dataShow",
+      component:components.dataShow,
+      meta:{
+        title:"数据看板"
+      }
     }
   ]
 });
