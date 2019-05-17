@@ -18,14 +18,18 @@
     <div class="rank-item">
       <div class="rank-title">校区排行榜</div>
       <div
-        :class="['list-item',index>=3 && school_range.length-1 === index ? 'no-line':'']"
-        v-for="(item,index) in school_range"
+        :class="['list-item',index>=3 && showSchoolRange.length-1 === index ? 'no-line':'']"
+        v-for="(item,index) in showSchoolRange"
         :key="index"
       >
         <span class="rank">{{index+1}}</span>
         <span class="name">{{item.name}}</span>
         <span class="value">{{item.subject}}科</span>
       </div>
+      <button v-if="school_range.length>10" class="more-btn" @click.passive="toShowMore">
+        {{btnText}}
+        <i :class="['iconfont',isOpen ? 'icon-packup': 'icon-unfold']"></i>
+      </button>
     </div>
     <div class="rank-item">
       <div class="rank-title">报名科目数对比</div>
@@ -51,6 +55,7 @@ export default {
     return {
       duokelv: 0,
       school_range: [],
+      isOpen: false,
       total: 0,
       students: "",
       subjects: 0,
@@ -67,13 +72,21 @@ export default {
       let item = orgData.get(query.org);
       if (item) this.configData = item;
     }
-    console.log("this.", this.configData);
     this.websockFunc();
   },
   methods: {
     websockFunc() {
       if (!this.configData.ws) return;
       let ws = new WebSocket(this.configData.ws);
+      ws.onopen = () => {
+        ws.send(
+          JSON.stringify({
+            org_name: this.configData.name,
+            time: this.configData.time
+          })
+        );
+        this.setTimer();
+      };
       ws.onmessage = evt => {
         try {
           let data = JSON.parse(evt.data);
@@ -106,21 +119,36 @@ export default {
         }
       };
       this.ws = ws;
-      this.setTimer();
     },
     setTimer() {
       this.timer = setInterval(() => {
         if (this.ws.readyState === 1) {
-          this.ws.send(JSON.stringify({name:this.configData.name,time:this.configData.time}))
+          this.ws.send(
+            JSON.stringify({
+              org_name: this.configData.name,
+              time: this.configData.time
+            })
+          );
         } else if (this.times >= 10) {
           clearInterval(this.timer);
         }
       }, 3000);
+    },
+    toShowMore() {
+      this.isOpen = !this.isOpen;
     }
   },
-  computed:{
-    showError(){
-      return this.times >= 10 ? true :false
+  computed: {
+    showSchoolRange() {
+      let list = JSON.parse(JSON.stringify(this.school_range));
+      if (!this.isOpen) list.length = 10;
+      return list;
+    },
+    showError() {
+      return this.times >= 10 ? true : false;
+    },
+    btnText() {
+      return this.isOpen ? "收起" : "查看更多";
     }
   },
   destroyed() {
@@ -217,25 +245,34 @@ export default {
         text-overflow: ellipsis;
         white-space: nowrap;
       .value
-        flex: 0 0 150px;
+        flex: 0 0 130px;
         margin-left: 20px;
         text-align: right;
+  .more-btn
+    border-top: 2px solid #fff;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
   .support-tips
     font-size: 24px;
     color: #fff;
     margin-top: 60px;
     text-align: center;
   .error-tips
-    position fixed;
-    height:60px;
-    top:0;
-    left:0;
-    background-color:#faecd8;
-    width:100%;
-    line-height 60px;
-    padding:0 20px;
-    color:#e6a23c;
-    display none;
+    position: fixed;
+    height: 60px;
+    top: 0;
+    left: 0;
+    background-color: #faecd8;
+    width: 100%;
+    line-height: 60px;
+    padding: 0 20px;
+    color: #e6a23c;
+    display: none;
     &.show
-      display block;
+      display: block;
 </style>
