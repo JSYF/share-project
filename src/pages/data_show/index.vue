@@ -79,6 +79,7 @@ export default {
       if (!this.configData.ws) return;
       let ws = new WebSocket(this.configData.ws);
       ws.onopen = () => {
+        console.log("this",this.configData)
         ws.send(
           JSON.stringify({
             org_name: this.configData.name,
@@ -121,7 +122,7 @@ export default {
       this.ws = ws;
     },
     setTimer() {
-      this.timer = setInterval(() => {
+      this.timer = setInterval(() => { 
         if (this.ws.readyState === 1) {
           this.ws.send(
             JSON.stringify({
@@ -141,7 +142,7 @@ export default {
   computed: {
     showSchoolRange() {
       let list = JSON.parse(JSON.stringify(this.school_range));
-      if (!this.isOpen) list.length = 10;
+      if (!this.isOpen) list.length =list.length > 10 ? 10 :list.length ;
       return list;
     },
     showError() {
