@@ -12,7 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         '/api': {
-        target: 'http://test1.xiaomingkeji.com/api/index.php?r=',
+        // target: 'http://test.xiaomingkeji.com/api/index.php?r=',
+        target: 'http://test1.xiaomingkeji.com/api/index.php?r=', // 海报星球
         changeOrigin: true,
         pathRewrite: {
         '^/api': ''

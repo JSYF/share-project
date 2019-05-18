@@ -305,8 +305,8 @@ export default {
       .form_component {
         flex: 1;
         text-align: right;
-
         input {
+          padding 15px 0
           text-align: right;
         }
 
