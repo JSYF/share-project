@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><meta name=x5-orientation content=portrait><meta name=format-detection content="telephone=no"><meta name=format-detection name="email=no"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black-translucent><meta name=apple-touch-fullscreen content=yes><title>学员卡</title><script type=text/javascript>// 横屏监听
+      var updateOrientation = function(){
+        if(window.orientation=='-90' || window.orientation=='90'){
+          alert('为了更好的体验，请将手机/平板竖过来！');
+        }
+      };
+      window.onorientationchange = updateOrientation;</script><script type=application/javascript>function getRequestData() {
+          var url = location.search; //获取url中"?"符后的字串
+          var theRequest = {};
+          if (url.indexOf("?") != -1) {
+              var str = url.substr(1);
+              strs = str.split("&");
+              for (var i = 0; i < strs.length; i++) {
+                  theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+              }
+          }
+          return theRequest;
+      };</script><link href=/wap/static/css/app.775ef68bf00059cb0c19d69e39d96faf.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/wap/static/js/manifest.7672849690f65ef2ec9d.js></script><script type=text/javascript src=/wap/static/js/vendor.99eaa1824cfe54edccc8.js></script><script type=text/javascript src=/wap/static/js/app.95c222eca4a201a3ae91.js></script></body></html>
