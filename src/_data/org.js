@@ -14,7 +14,7 @@ let orgData = new Map([
     {
       name: "科翰高中",
       time: "2019 暑假",
-      ws: "ws://120.24.48.148:9504",
+      ws: "ws://120.24.48.148:9502",
       showMul: true,
       showPrice: false
     }
@@ -23,8 +23,8 @@ let orgData = new Map([
     "a373fa538d48c39d14352febd1a353b0843b2e5a",
     {
       name: "草莓田",
-      time: "2019 暑假",
-      ws: "ws://120.24.48.148:9503",
+      time: "2019 秋季",
+      ws: "ws://120.24.48.148:9502",
       showMul: false,
       showPrice: true
     }
@@ -33,8 +33,8 @@ let orgData = new Map([
     "6bf4bc08be552ae305d9267bf15ca645ac98607f",
     {
       name: "智造家",
-      time: "2019 暑假",
-      ws: "ws://120.24.48.148:9505",
+      time: "2019 秋季",
+      ws: "ws://120.24.48.148:9502",
       showMul: false,
       showPrice: true
     }
@@ -44,7 +44,7 @@ let orgData = new Map([
     {
       name: "米博士",
       time: "2019 暑假",
-      ws: "ws://120.24.48.148:9506",
+      ws: "ws://120.24.48.148:9502",
       showMul: false,
       showPrice: true
     }
