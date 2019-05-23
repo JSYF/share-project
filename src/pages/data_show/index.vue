@@ -96,6 +96,7 @@ export default {
           this.duokelv = data.duokelv;
           this.subjects = data.subjects;
           this.subject_range = data.subject_range;
+          this.total = data.total;
           this.times = 0;
         } catch (error) {
           this.times++;
