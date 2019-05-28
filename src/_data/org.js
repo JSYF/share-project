@@ -12,7 +12,7 @@ let orgData = new Map([
   [
     "ec12161edda8192bc0a12442a4a3c6442d3e5844",
     {
-      name: "科翰高中",
+      name: "科翰高中部",
       time: "2019 暑假",
       ws: "ws://120.24.48.148:9502",
       showMul: true,
