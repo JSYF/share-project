@@ -148,6 +148,7 @@ export default {
       }
     },
     createShare(shareObj) {
+      console.log("shareObj",shareObj)
       this.$sharePage(shareObj);
     },
     getPageData() {
