@@ -73,6 +73,14 @@ let router = new VueRouter({
       }
     },
     {
+      path: "/form",
+      name: "posterForm",
+      component: components.posterForm,
+      meta: {
+        title: "海报星球"
+      }
+    },
+    {
       path: "/data_show",
       name: "dataShow",
       component: components.dataShow,
