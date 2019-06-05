@@ -99,7 +99,7 @@ export default {
         student_phone
       })
         .then(res => {
-          data = res.data;
+          let data = res.data;
           if (data.choose_org_list && data.choose_org_list.length > 1) {
             this.choose_org_list = data.choose_org_list;
             this.openPicker();
@@ -108,6 +108,7 @@ export default {
           this.goPage();
         })
         .catch(e => {
+          console.log("e",e);
           this.$toast.fail(e);
         });
     },
