@@ -146,11 +146,10 @@ export default {
     }
   },
   mounted() {
-    let logo = require("@/assets/img/report/share_logo.png");
     let obj = {
       title: "学习报告生成平台",
       link: window.location.href,
-      imgUrl: logo,
+      imgUrl: "https://image.haoxuezhuli.com/saas-dir/2019-06/1559722801958-618114.png",
       desc: "请输入学生姓名+绑定手机号码后4位（如，李明6686）"
     };
     this.$sharePage(obj);

@@ -419,7 +419,7 @@ export default {
             link: window.location.href,
             imgUrl:
               detail.student_avatar ||
-              require("@/assets/img/report/share_logo.png"),
+              "https://image.haoxuezhuli.com/saas-dir/2019-06/1559722801958-618114.png",
             desc: "期末临近，老师有个寄语写在了里边。"
           };
           this.$sharePage(obj);
