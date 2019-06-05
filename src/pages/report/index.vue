@@ -98,7 +98,8 @@ export default {
       getReport({
         student_phone
       })
-        .then(data => {
+        .then(res => {
+          data = res.data;
           if (data.choose_org_list && data.choose_org_list.length > 1) {
             this.choose_org_list = data.choose_org_list;
             this.openPicker();
@@ -107,7 +108,7 @@ export default {
           this.goPage();
         })
         .catch(e => {
-          console.log(e);
+          this.$toast.fail(e);
         });
     },
 
@@ -125,7 +126,8 @@ export default {
     getOrgList() {
       let org_name = this.$route.query.org_name || "";
       getOrgList({ org_name })
-        .then(data => {
+        .then(res => {
+          let data = res.data;
           let org_list = data.org_list;
           let org_list_picker = [];
           for (let i = 0, len = org_list.length; i < len; i++) {
@@ -135,7 +137,7 @@ export default {
           this.org_list_picker = org_list_picker;
         })
         .catch(e => {
-          console.log("error=>", e);
+          this.$toast.fail(e);
         });
     },
 

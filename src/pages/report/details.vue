@@ -403,7 +403,8 @@ export default {
       };
       if (crm_stu_id) obj.crm_stu_id = crm_stu_id;
       getReport(obj)
-        .then(data => {
+        .then(res => {
+          let data = res.data;
           let detail = data.detail;
           let start_date = new Date(Number(detail.start_date) * 1000);
           detail.month1 = start_date.getMonth() + 1;
@@ -424,7 +425,7 @@ export default {
           this.$sharePage(obj);
         })
         .catch(e => {
-          console.log("e", e);
+          this.$toast.fail(e);
         });
     }
   },
