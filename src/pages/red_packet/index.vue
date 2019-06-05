@@ -4,7 +4,7 @@
       <img class="bg-1" src="https://image.yunhan100.com/wap-index/redpack/red_01.png">
     </div>
     <div class="input-wrap">
-      <p class="input-tips">——提交信息，免费试用——</p>
+      <p class="input-tips">——提交信息，免费体验——</p>
       <div class="input-inner">
         <p class="input-title">
           机构名称
@@ -29,17 +29,22 @@
       <button class="btn" @click.stop.prevent="submitForm">立即提交</button>
     </div>
     <div class="bg-wrap">
-      <img class="bg-3" src="https://image.haoxuezhuli.com/wap-index/bg-stu-2.png">
+      <img class="bg-3" src="https://image.yunhan100.com/wap-index/redpack/red_03.png">
     </div>
     <div class="bg-wrap">
-      <img class="bg-4" src="https://image.haoxuezhuli.com/wap-index/bg-stu-3.png">
+      <img class="bg-4" src="https://image.yunhan100.com/wap-index/redpack/red_04.png">
     </div>
     <div class="bg-wrap">
-      <img class="bg-5" src="https://image.haoxuezhuli.com/wap-index/bg-stu-4.png">
+      <img class="bg-5" src="https://image.yunhan100.com/wap-index/redpack/red_05.png">
     </div>
-
+    <div class="bg-wrap">
+      <img class="bg-6" src="https://image.yunhan100.com/wap-index/redpack/red_06.png">
+    </div>
+    <div class="bg-wrap">
+      <img class="bg-7" src="https://image.yunhan100.com/wap-index/redpack/red_07.png">
+    </div>
     <div class="input-wrap">
-      <p class="input-tips">——提交信息，免费试用——</p>
+      <p class="input-tips">——提交信息，免费体验——</p>
       <div class="input-inner">
         <p class="input-title">
           机构名称
@@ -118,7 +123,7 @@
           org_name: this.org_name, //机构名称
           fullname: this.fullname, //联系人
           telephone: this.telephone, //  联系电话
-          source: "H5学员卡", //来源
+          source: "H5红包拼课", //来源
           source_id: this.source_id || "0"
         };
         postUse(obj)
@@ -167,10 +172,10 @@
     },
     mounted() {
       let obj = {
-        title: "学员卡：能招生的家校小程序，增长教学口碑",
+        title: "2019暑假，朋友圈家长那么多，如何精准转化锁定生源？",
         link: window.location.href,
-        imgUrl: "https://image.haoxuezhuli.com/wap-index/student-card-logo.png",
-        desc: "外化教学成果，让家长乐于分享"
+        imgUrl: "https://image.yunhan100.com/wap-index/redpack/redpack_logo.png?x-oss-process=style/image_share_compress",
+        desc: "流量不足，今天购买送地推礼包。"
       };
       this.$sharePage(obj);
       this.addCount();
@@ -193,17 +198,21 @@
   .bg-wrap
     width: 100%;
     height: auto;
-    background-color: #38388b;
+    // background-color: #38388b;
     img
       width 100%;
     .bg-1
       height: 660px;
     .bg-3
-      height: 1328px;
+      height: 1065px;
     .bg-4
-      height: 1371px;
+      height: 1140px;
     .bg-5
-      height: 1058px;
+      height: 854px;
+		.bg-6
+      height: 1020px;
+    .bg-7
+      height: 963px;
   .input-wrap
     background-color: #fff;
     padding: 50px 35px 70px;
@@ -234,7 +243,7 @@
       width: 100%;
       height: 95px;
       line-height: 95px;
-      background-color: #4e4ea5;
+      background-color: #fe6f64;
       border-radius: 5px;
   .share-box
     position: fixed;

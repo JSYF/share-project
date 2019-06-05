@@ -15,11 +15,15 @@ const posterForm = () =>
 // 数据看板
 const dataShow = () =>
   import(/* webpackChunkName: "group-data-show" */ "@/pages/data_show/index.vue");
+// 红包
+const redPacket = () =>
+  import(/* webpackChunkName: "red-packet" */ "@/pages/red_packet/index.vue")
 // 学期报告
 const report = ()=>
   import(/* webpackChunkName: "group-report" */ "@/pages/report/index.vue");
 const reportDetails = ()=>
   import(/* webpackChunkName: "group-report" */ "@/pages/report/details.vue");
+
 export default {
   Index,
   Apply,
@@ -29,6 +33,7 @@ export default {
   studentCardShare,
   posterForm,
   dataShow,
+  redPacket,
   report,
   reportDetails
 };

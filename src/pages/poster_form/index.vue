@@ -25,10 +25,7 @@
         <div class="form_component">
           <button @click="showAction('grade')">
             {{formData.grade[0] ? formData.grade[0].name : '选择年级'}}
-            <img
-              class="icon"
-              src="../../../static/images/unfold.png"
-            >
+            <img class="icon" src="../../../static/images/unfold.png">
           </button>
         </div>
       </div>
@@ -56,10 +53,7 @@
         <div class="form_component">
           <button @click="showAction('campus')">
             {{formData.campus[0] ? formData.campus[0].name : '选择校区'}}
-            <img
-              class="icon"
-              src="../../../static/images/unfold.png"
-            >
+            <img class="icon" src="../../../static/images/unfold.png">
           </button>
         </div>
       </div>
@@ -73,6 +67,9 @@
     <van-actionsheet v-model="show" :actions="actions" @select="onSelect"/>
 
     <div class="bottom" @click="submit">提交</div>
+    <div class="poster" v-if="logo">
+      <img :src="logo" />
+    </div>
   </div>
 </template>
 
@@ -87,7 +84,7 @@ export default {
   data() {
     return {
       show: false,
-      source_id: "",
+      logo: "",
       formData: {
         student_name: "",
         phone: "",
@@ -95,14 +92,14 @@ export default {
         grade: [],
         subject: [],
         campus: []
-      },
-      showOptions: {
-        has_campus: "0", // 校区
-        has_comment: "0", // 备注
-        has_grade: "0", // 年级
-        has_mobile: "0", // 电话
-        has_name: "0", // 姓名
-        has_subject: "0" // 学科
+			},
+			showOptions: {
+				has_campus: "0", // 校区
+				has_comment: "0", // 备注
+				has_grade: "0", // 年级
+				has_mobile: "0", // 电话
+				has_name: "0", // 姓名
+				has_subject: "0" // 学科
       },
       formOptions: {
         grade: [],
@@ -125,31 +122,27 @@ export default {
     this.getPageData();
   },
   methods: {
-    formValidate() {
-      let err = "";
-      let formData = Object.assign({}, this.formData);
-      let formOptions = Object.assign({}, this.showOptions);
+    formValidate () {
+      let err = ""
+      let formData = Object.assign({}, this.formData)
+      let formOptions = Object.assign({}, this.showOptions)
       if (!formData.student_name) {
-        err = "请填写学生姓名";
+        err = "请填写学生姓名"
       } else if (formData.phone.length !== 11) {
-        err = "请填写11位电话号码";
+        err  = "请填写11位电话号码"
       } else if (formOptions.has_subject == 1 && !formData.subject.length) {
-        err = "请选择科目";
+        err = "请选择科目"
       } else if (formOptions.has_campus == 1 && !formData.campus.length) {
-        err = "请选择校区";
+        err = "请选择校区"
       } else if (formOptions.has_grade == 1 && !formData.grade.length) {
-        err = "请选择年级";
+        err = "请选择年级"
       }
       if (err.length) {
-        this.$toast.fail(err);
-        return false;
+        this.$toast.fail(err)
+        return false
       } else {
-        return true;
+        return true
       }
-    },
-    createShare(shareObj) {
-      console.log("shareObj",shareObj)
-      this.$sharePage(shareObj);
     },
     getPageData() {
       let id = this.form_id;
@@ -160,31 +153,33 @@ export default {
           link: window.location.href,
           imgUrl: res.data.logo,
           desc: res.data.description
-        };
-        this.user_id = res.data.user_id;
+        }
+        this.user_id = res.data.user_id
         this.title = res.data.title;
+        this.logo = res.data.logo
         for (let key in this.formOptions) {
           this.formOptions[key] = res.data[key];
+				}
+				for (let key in this.showOptions) {
+					this.showOptions[key] = res.data[key]
         }
-        for (let key in this.showOptions) {
-          this.showOptions[key] = res.data[key];
-        }
-        this.createShare(shareObj);
+        console.log("shareObj",shareObj)
+        this.$sharePage(shareObj);
       });
     },
     submit() {
-      if (!this.formValidate()) return;
-      let formData = this.formData;
-      let grade = formData.grade[0] ? [formData.grade[0].id] : [];
-      let campus = formData.campus[0] ? [formData.campus[0].id] : [];
-      let subject = formData.subject.length ? formData.subject : [];
+      if (!this.formValidate()) return
+			let formData = this.formData;
+			let grade = formData.grade[0] ? [formData.grade[0].id] : []
+			let campus = formData.campus[0] ? [formData.campus[0].id] : []
+			let subject = formData.subject.length ? formData.subject : []
       let params = {
         user_id: this.user_id,
         form_id: this.form_id,
         student_name: formData.student_name,
         phone: formData.phone,
         remark: formData.remark,
-        grade: JSON.stringify(grade),
+        grade: JSON.stringify(grade), 
         campus: JSON.stringify(campus),
         subject: JSON.stringify(formData.subject)
       };
@@ -193,7 +188,7 @@ export default {
           this.$toast.success("提交成功");
         })
         .catch(err => {
-          console.log(err);
+          console.log(err)
           this.$toast.fail("提交失败," + err);
         });
     },
@@ -224,12 +219,13 @@ export default {
 
 <style lang="stylus" scoped>
 .parent_form {
-  height: 100vh;
+  height 100vh
   border: 1px solid transparent;
   color: #333333;
+  padding-bottom 130px;
   box-sizing: border-box;
-  overflow: hidden;
-
+  overflow-x: hidden;
+  overflow-y auto;
   .page_title {
     font-size: 44px;
     font-weight: bold;
@@ -323,21 +319,27 @@ export default {
       .form_component {
         flex: 1;
         text-align: right;
+
         input {
-          padding 15px 0
           text-align: right;
         }
 
         button {
           color: #999;
-          padding: 0;
-
+          padding 0
           .icon {
             width: 32px;
             height: 32px;
           }
         }
       }
+    }
+  }
+  .poster{
+    width: 100%;
+    height: auto;
+    img{
+      width: 100%;
     }
   }
 }
