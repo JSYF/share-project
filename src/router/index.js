@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import components from "./components";
-import {getWxConfig} from "@/api/index";
+import { getWxConfig } from "@/api/index";
 Vue.use(VueRouter);
 function $isWx() {
   var ua = window.navigator.userAgent.toLowerCase();
@@ -19,8 +19,8 @@ let router = new VueRouter({
       path: "",
       name: "index",
       component: components.Index,
-      meta:{
-        title:"学员卡"
+      meta: {
+        title: "学员卡"
       }
     },
     // 申请试用
@@ -33,35 +33,35 @@ let router = new VueRouter({
       }
     },
     {
-      path:"/yunhan_apply",
-      name:"yunhanApply",
-      component:components.yunhanApply,
-      meta:{
-        title:"申请试用"
+      path: "/yunhan_apply",
+      name: "yunhanApply",
+      component: components.yunhanApply,
+      meta: {
+        title: "申请试用"
       }
     },
     {
-      path:"/publicity",
-      name:"publicity",
-      component:components.publicity,
-      meta:{
-        title:"小云翰"
+      path: "/publicity",
+      name: "publicity",
+      component: components.publicity,
+      meta: {
+        title: "小云翰"
       }
     },
     {
-      path:"/publicity/like",
-      name:"publicityLike",
-      component:components.publicityShare,
-      meta:{
-        title:"小云翰"
+      path: "/publicity/like",
+      name: "publicityLike",
+      component: components.publicityShare,
+      meta: {
+        title: "小云翰"
       }
     },
     {
-      path:"/student",
-      name:"student",
-      component:components.studentCardShare,
-      meta:{
-        title:"小云翰"
+      path: "/student",
+      name: "student",
+      component: components.studentCardShare,
+      meta: {
+        title: "小云翰"
       }
     },
     {
@@ -73,12 +73,27 @@ let router = new VueRouter({
       }
     },
     {
-      path:"/data_show",
-      name:"dataShow",
-      component:components.dataShow,
-      meta:{
-        title:"数据看板"
+      path: "/data_show",
+      name: "dataShow",
+      component: components.dataShow,
+      meta: {
+        title: "数据看板"
       }
+    },
+    {
+      path: "/report",
+      name: "report",
+      component: components.report,
+      meta: {
+        title: "学期报告"
+      }
+    },
+    {
+      path: "/report/details",
+      meta: {
+        title: "学期报告"
+      },
+      component: components.reportDetails
     }
   ]
 });
@@ -115,21 +130,22 @@ router.afterEach((to, from) => {
     let protocol = window.location.protocol;
     localUrl = protocol + "//" + domain + baseurl;
     getWxConfig({
-      url:localUrl
+      url: localUrl
     })
-      .then(res=>{
+      .then(res => {
         let config_data = res.data;
         wx.config({
-            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: config_data.appId, // 必填，公众号的唯一标识
-            timestamp: config_data.timestamp, // 必填，生成签名的时间戳
-            nonceStr: config_data.nonceStr, // 必填，生成签名的随机串
-            signature: config_data.signature.toString(), // 必填，签名，见附录1
-            jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+          debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+          appId: config_data.appId, // 必填，公众号的唯一标识
+          timestamp: config_data.timestamp, // 必填，生成签名的时间戳
+          nonceStr: config_data.nonceStr, // 必填，生成签名的随机串
+          signature: config_data.signature.toString(), // 必填，签名，见附录1
+          jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
-      }).catch(e=>{
-        console.log("error=>", e);
       })
-}
+      .catch(e => {
+        console.log("error=>", e);
+      });
+  }
 });
 export default router;

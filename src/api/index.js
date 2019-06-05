@@ -23,3 +23,12 @@ export function toLike(data={}) {
   return request("common/submit/create-extend-record",data);
 }
 
+//H5 季度报告
+export function getReport(data={}){
+  return request("common/quarter-report/detail",data)
+}
+
+//H5 选择机构
+export function getOrgList(data={}){
+  return request("common/quarter-report/org-list",data)
+}
