@@ -110,6 +110,14 @@ let router = new VueRouter({
         title: "学期报告"
       },
       component: components.reportDetails
+    },
+    {
+      path:"/saas",
+      name:"saas",
+      component:components.saas,
+      meta:{
+        title:"章鱼校长"
+      }
     }
   ]
 });

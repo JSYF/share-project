@@ -23,7 +23,9 @@ const report = ()=>
   import(/* webpackChunkName: "group-report" */ "@/pages/report/index.vue");
 const reportDetails = ()=>
   import(/* webpackChunkName: "group-report" */ "@/pages/report/details.vue");
-
+const saas = ()=>
+  import(/* webpackChunkName: "group-saas" */ "@/pages/saas/index.vue");
+saas
 export default {
   Index,
   Apply,
@@ -35,5 +37,6 @@ export default {
   dataShow,
   redPacket,
   report,
-  reportDetails
+  reportDetails,
+  saas
 };
