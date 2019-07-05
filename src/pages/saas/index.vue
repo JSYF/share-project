@@ -148,7 +148,7 @@
       let obj = {
         title: "章鱼校长，让办学更简单的教务信息化系统",
         link: window.location.href,
-        imgUrl: "https://image.yunhan100.com/wap-index/saas_img_4.png",
+        imgUrl: "https://image.yunhan100.com/wap-index/saas_share_logo.png",
         desc: "好用、易用、能落地，还包含能招生的家校互动小程序"
       };
       this.$sharePage(obj);
