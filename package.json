@@ -12,7 +12,7 @@
     "test": "node build/build.js"
   },
   "dependencies": {
-    "ajv": "^6.5.4",
+    "ajv": "^6.12.3",
     "axios": "^0.18.0",
     "fastclick": "^1.0.6",
     "fingerprintjs": "^0.5.3",
